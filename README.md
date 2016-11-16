@@ -3,7 +3,7 @@
 ## Prerequisites
 You must have node.js and
 its package manager (npm) installed.  You can get them from [http://nodejs.org/](http://nodejs.org/).
-Otherwise, you won't be able tu run the tests and you will have to launch webserver yourself
+Otherwise, you won't be able to run the tests, and you will have to launch the webserver yourself.
 
 
 ## Getting Started
