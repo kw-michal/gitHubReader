@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="AngularJS demo app">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AngularJS app which displays list of github repos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="/src/modules/githubreader/assets/app.css" rel="stylesheet">
+    <script src="/bower_components/angular/angular.min.js"></script>
+</head>
+
+<body ng-app="gitHubReader">
+    <div class="container" ng-controller="RepositoryListController as vm">
+        <h1 class="header center-align">GitHub repository list</h1>
+        <form name="searchForm" novalidate ng-submit="vm.getRepos()">
+            <div class="mk-search-box">
+                <div class="input-field mk-search-box-input">
+                    <input id="username" ng-model="vm.userName" placeholder="e.g. goeuro" type="text" required pattern="^[A-Za-z0-9-]{1,39}$">
+                    <label class="active" for="username">GitHub username</label>
+                </div>
+                <div class="input-field mk-search-box-button">
+                    <button class="btn waves-effect waves-light" type="submit" ng-disabled="searchForm.$invalid || vm.processing">
+                        Check
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
+            </div>
+        </form>
+        <div id="results">
+            <!-- PROGRESS BAR -->
+            <div ng-if="vm.processing" class="progress">
+                <div class="indeterminate"></div>
+            </div>
+            <!-- ERROR MSG -->
+            <div ng-if="!vm.processing && vm.errorMsg">
+                <strong class="materialize-red-text" ng-bind="vm.errorMsg"></strong>
+            </div>
+            <!-- LIST OF REPOSITORIES -->
+            <div ng-if="!vm.processing && vm.repos && vm.repos.length" class="collection">
+                <a ng-repeat="repo in vm.repos" target="_blank" href="{{repo.url}}" class="collection-item" ng-bind="repo.name"></a>
+            </div>
+            <!-- PAGINATION -->
+            <ul ng-if="vm.numberOfPages>1" class="pagination center-align">
+                <li ng-class="{'disabled': vm.currentPage === 1}" ng-click="vm.currentPage !== 1 && vm.getRepos(vm.currentPage-1)">
+                    <a href="#!"><i class="material-icons">chevron_left</i></a>
+                </li>
+                <li ng-repeat="n in vm.loopHelper track by $index" ng-class="{'active': $index + 1 === vm.currentPage}" ng-click="vm.getRepos($index + 1)">
+                    <a href="#!">{{$index+1}}</a>
+                </li>
+                <li ng-class="{'disabled': vm.numberOfPages === vm.currentPage}" ng-click="vm.currentPage !== vm.numberOfPages && vm.getRepos(vm.currentPage+1)" class="waves-effect">
+                    <a href="#!"><i class="material-icons">chevron_right</i></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script src="/src/modules/githubreader/githubreader.module.js"></script>
+    <script src="/src/modules/githubreader/githubreader.settings.js"></script>
+    <script src="/src/modules/githubreader/services/repositories.service.js"></script>
+    <script src="/src/modules/githubreader/controllers/githubreader.controller.js"></script>
+</body>
+
+</html>

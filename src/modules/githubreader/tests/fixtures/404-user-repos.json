@@ -1,0 +1,8 @@
+{
+	"status": 404,
+	"headers": {},
+	"data": {
+  		"message": "Not Found",
+  		"documentation_url": "https://developer.github.com/v3"
+	}
+}

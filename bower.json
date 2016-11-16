@@ -1,0 +1,19 @@
+{
+  "name": "gitHubReader",
+  "description": "AngularJS app which displays list of github repositories",
+  "authors": [
+    "Michal Kwilman <michal.kwilman@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "devDependencies": {
+    "angular": "^1.5.8",
+    "angular-mocks": "^1.5.8",
+    "karma-read-json": "^1.1.0"
+  }
+}

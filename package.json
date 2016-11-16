@@ -1,0 +1,24 @@
+{
+  "name": "gitHubReader",
+  "version": "1.0.0",
+  "description": "AngularJS app which displays list of github repositories",
+  "scripts": {
+    "test": "node node_modules/karma/bin/karma start",
+    "server": "node node_modules/http-server/bin/http-server",
+    "start": "node node_modules/http-server/bin/http-server",
+    "setup": "npm install && node node_modules/bower/bin/bower install"
+
+  },
+  "author": "Michal Kwilman <michal.kwilman@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "bower": "^1.8.0",
+    "http-server": "^0.9.0",
+    "jasmine-core": "^2.5.2",
+    "karma": "^1.3.0",
+    "phantomjs": "^2.1.7",
+    "karma-jasmine": "^1.0.2",
+    "karma-phantomjs-launcher": "^1.0.2"
+
+  }
+}

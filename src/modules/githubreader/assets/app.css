@@ -1,0 +1,22 @@
+/**
+ * @author Michał Kwilman <michal.kwilman@gmail.com>
+ * @license MIT
+ * @version 1.0
+ */
+
+.mk-search-box{
+	display:flex;
+	flex-direction:row;
+}
+.mk-search-box>.mk-search-box-input{
+	flex:1;
+}
+.mk-search-box>.mk-search-box-button{
+	margin-left: 20px;
+}
+h1{
+	color: #ee6e73;
+    font-weight: 300;
+    text-shadow: 1px 1px 5px #ccc;
+    font-size:2.5em;
+}
