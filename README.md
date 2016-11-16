@@ -1,4 +1,4 @@
-# AngularJS demo application which display list of repositories for given user
+# AngularJS demo application which displays list of repositories for given user
 
 ## Prerequisites
 You must have node.js and
